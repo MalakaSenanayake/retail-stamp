@@ -1,0 +1,15 @@
+#Application Property File
+#Thu Oct 14 22:17:54 IST 2021
+
+com.database.serverip=Localhost
+com.database.sqlDumpPath=C:/Program Files/MySQL/MySQL Server 5.5/bin/mysqldump
+com.database.serverPort=3306
+com.database.defaultBackupPath=C:/DBbackups
+
+com.service.baseurl=
+
+com.application.version=1.2
+
+business.detail.name=Business name
+business.detail.contact=0779822133
+business.detail.address=Yakkala Road, Gampaha.

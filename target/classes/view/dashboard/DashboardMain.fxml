@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1237.0" styleClass="background-transparent" stylesheets="@../../style/theme.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.dashbord.DashboardMainController">
+   <children>
+      <VBox maxWidth="150.0" minWidth="150.0" prefWidth="150.0" styleClass="sub-menu-bar-2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button fx:id="componentsBtn" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="7.0" maxHeight="45.0" maxWidth="1.7976931348623157E308" minHeight="45.0" mnemonicParsing="false" onAction="#componentsBtnOnAction" prefHeight="45.0" styleClass="button-sub-menu-theme1" text="All components">
+               <tooltip>
+                  <Tooltip text="Test tool tip" />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIcon fill="#d3d3d3" glyphName="PLUS_SQUARE" size="17px" styleClass="button-icon" />
+               </graphic>
+            </Button>
+            <Button fx:id="tableSample1Btn" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="7.0" maxHeight="45.0" maxWidth="1.7976931348623157E308" minHeight="45.0" mnemonicParsing="false" onAction="#tableSample1BtnOnAction" prefHeight="45.0" styleClass="button-sub-menu-theme1" text="Table design 1">
+               <tooltip>
+                  <Tooltip text="Test tool tip" />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIcon fill="#d3d3d3" glyphName="PLUS_SQUARE" size="17px" styleClass="button-icon" />
+               </graphic>
+            </Button>
+            <Button fx:id="tableSample2Btn" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="7.0" maxHeight="45.0" maxWidth="1.7976931348623157E308" minHeight="45.0" mnemonicParsing="false" onAction="#tableSample2BtnOnAction" prefHeight="45.0" styleClass="button-sub-menu-theme1" text="Table design 2">
+               <tooltip>
+                  <Tooltip text="Test tool tip" />
+               </tooltip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <FontAwesomeIcon fill="#d3d3d3" glyphName="PLUS_SQUARE" size="17px" styleClass="button-icon" />
+               </graphic>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane fx:id="pageLoadingSpace" layoutX="243.0" prefHeight="394.0" prefWidth="1107.0" styleClass="anchor-pane-transparent" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Region fx:id="backRegionPane" layoutX="52.0" layoutY="50.0" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <ProgressIndicator fx:id="loadingProgress" layoutX="550.0" layoutY="300.0" prefHeight="100.0" prefWidth="100.0" visible="false" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
