@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="expire_date" printOrder="Horizontal" pageWidth="102" pageHeight="57" columnWidth="102" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="36a94f79-45d7-477d-baea-33a6903070d5">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="MFD" class="java.lang.String"/>
+	<parameter name="EXP" class="java.lang.String"/>
+	<parameter name="PRICE" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="57">
+			<line>
+				<reportElement x="0" y="0" width="102" height="1" uuid="3b7593d0-f6f2-4582-96ad-04d26f750bcf"/>
+			</line>
+			<line>
+				<reportElement x="0" y="56" width="102" height="1" uuid="f7273a81-2c44-4aa8-a881-9bdd05704c0f"/>
+			</line>
+			<textField>
+				<reportElement x="0" y="1" width="102" height="15" uuid="794b851b-a433-4c56-9091-e69c0f9422d3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{MFD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="19" width="102" height="15" uuid="aa95fd11-ca26-4882-ac12-5885c1b375ad"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{EXP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="37" width="102" height="15" uuid="a718b19e-600c-4e1c-bae2-da4620ca4541"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PRICE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

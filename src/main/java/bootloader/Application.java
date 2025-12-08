@@ -37,7 +37,6 @@ public class Application extends javafx.application.Application {
     @Override
     public void start(Stage primaryStage) {
         initializeSystem();
-        loadJasper();
         if (true) { //check software status
             try {
                 System.out.println(PropertyReader.BUSINESS_NAME);
@@ -56,16 +55,10 @@ public class Application extends javafx.application.Application {
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    private void loadJasper() {
-//        try {
-//           JasperReport jr = JasperCompileManager.compileReport(ReportPath.EXPIRE_DATE_LABEL);
-//           JasperPrint jp = JasperFillManager.fillReport(jr, null);
-//            System.out.println(jp.getName());
-//        } catch (Exception e) {
-//            System.out.println("jasper load exception" + e);
-//        }
-        JasperCompiler.compileReport(ReportPath.EXPIRE_DATE_LABEL);
-    }
+//    private void loadJasper() {
+//
+//        JasperCompiler.compileReport(ReportPath.EXPIRE_DATE_LABEL);
+//    }
 
     //------------------------------------------------------------------------------------------------------------------
     private void initializeSystem() {
