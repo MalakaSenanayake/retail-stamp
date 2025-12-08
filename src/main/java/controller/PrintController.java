@@ -64,10 +64,12 @@ public class PrintController implements Initializable {
     void printBtnOnAction(ActionEvent event) {
         print();
     }
+
     @FXML
     void calculateDateBtnOnAction(ActionEvent event) {
-         calculateDate();
+        calculateDate();
     }
+
     //------------------------------------------------------------------------------------------------------------------
     private void validations() {
         FxTextFieldUtil.toOnlyDecimalPositive(prizeTf);
@@ -80,10 +82,11 @@ public class PrintController implements Initializable {
         lblCountCb.getSelectionModel().selectFirst();
         expireMonthTf.setText("9");
     }
+
     //------------------------------------------------------------------------------------------------------------------
     private void calculateDate() {
-        if(FxTextFieldUtil.isNotEmpty(expireMonthTf)){
-            FxDatePickerUtil.setDatePlusGivenMonths(mfdDp,expDp,Integer.parseInt(expireMonthTf.getText()));
+        if (FxTextFieldUtil.isNotEmpty(expireMonthTf)) {
+            FxDatePickerUtil.setDatePlusGivenMonths(mfdDp, expDp, Integer.parseInt(expireMonthTf.getText()));
         }
 
     }
@@ -100,7 +103,7 @@ public class PrintController implements Initializable {
         if (FxDatePickerUtil.isNotEmptyDatePicker(expDp)) {
             if (FxTextFieldUtil.isNotEmpty(prizeTf)) {
                 int labelCount = lblCountCb.getValue();
-                for (int i = 0; i <= labelCount; i++) {
+                for (int i = 0; i < labelCount; i++) {
                     printSingleLabel();
                 }
             }
@@ -114,7 +117,6 @@ public class PrintController implements Initializable {
         String price = prizeTf.getText();
         InputStream jasperStream = null;
         try {
-
             jasperStream = Files.newInputStream(Paths.get(ReportPath.EXPIRE_DATE_LABEL + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
             // Add your two String parameters
@@ -136,45 +138,8 @@ public class PrintController implements Initializable {
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    private void viewUserMainPage() {
-        primaryStage = new Stage();
-        AnchorPane rootpane = new AnchorPane();
-        try {
-            FXMLLoader loder = new FXMLLoader();
-            loder.setLocation(FxmlPath.HOME);
-            rootpane = loder.load();
-            Scene sc = new Scene(rootpane);
-            primaryStage.setMaximized(true);
-            primaryStage.centerOnScreen();
-            primaryStage.setTitle("Theme 1 @ creative IT"); // Application name
-            primaryStage.getIcons().add(new Image("/image/appIcon.png"));
-            primaryStage.setScene(sc);
-            primaryStage.show();
-            primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-                @Override
-                public void handle(WindowEvent we) {
-                    System.out.println("closed");
-                }
-
-            });
-            primaryStage.iconifiedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
-                    System.out.println("minimize window");
-                }
-            });
-        } catch (IOException ex) {
-            System.err.println("LoginController - loadAdminMain" + ex);
-        }
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
-    private void logOutSystem() {
-        System.out.println("logOutSystem");
-    }
-
-    //------------------------------------------------------------------------------------------------------------------
     public static Stage getPrimaryStage() {
         return primaryStage; // Getter method for primaryStage
     }
+    //------------------------------------------------------------------------------------------------------------------
 }
