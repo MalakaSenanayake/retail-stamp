@@ -31,13 +31,13 @@
     -table-selected-line-colour: #90CAF9;
     -table-header-text-colour :#616161;
     /*-------------------------------------------*/
-    -border-colour: #9ca1a3;
-    -border-selected-colour:#616161;
+    -border-colour: black;
+    -border-selected-colour:black;
     -error-border-colour:#f44336;
     /*-------------------------------------------*/
     -font-family:'Roboto';
     -text-field-text-select-colour:red;
-    -text-colour: #34495e;
+    -text-colour: black;
     -error-text-colour:#f44336;
     /*-------------------------------------------*/
     -date-picker-next-month-colour:#E0E0E0;
@@ -53,9 +53,10 @@
 .background-login {
     -fx-border-width: 0px;
     -fx-border-color: transparent;
-    -fx-background-image: url("../image/login.png");
+    -fx-background-image: url("../image/retail-stamp_1.png");
     -fx-background-position: center;
-    -fx-background-repeat: stretch;
+    -fx-background-repeat: no-repeat;
+    -fx-background-size:100% 100%;
 }
 .background-main{
      -fx-border-width: 0px;

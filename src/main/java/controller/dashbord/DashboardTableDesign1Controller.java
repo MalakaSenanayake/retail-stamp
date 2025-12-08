@@ -1,6 +1,6 @@
 package controller.dashbord;
 
-import controller.LoginController;
+import controller.PrintController;
 import dto.ItemDTO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -120,7 +120,7 @@ public class DashboardTableDesign1Controller implements Initializable {
     //------------------------------------------------------------------------------------------------------------------
     private void getSelectedItemFromComboBox() {
         String selectedItem = searchTypeCombo.getSelectionModel().getSelectedItem();
-        FxAlertsUtil.informationMessage(selectedItem, LoginController.getPrimaryStage());
+        FxAlertsUtil.informationMessage(selectedItem, PrintController.getPrimaryStage());
     }
     //------------------------------------------------------------------------------------------------------------------
 }
