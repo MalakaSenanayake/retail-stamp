@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -13,16 +17,42 @@
     <children>
       <VBox layoutX="40.0" layoutY="52.0" prefHeight="209.0" prefWidth="201.0" spacing="6.0">
          <children>
-            <VBox spacing="2.0">
+            <HBox>
                <children>
-                  <Label text="Manufacture Date" />
-                  <DatePicker fx:id="mfdDp" />
+                  <VBox spacing="2.0">
+                     <children>
+                        <Label text="Manufacture Date" />
+                        <DatePicker fx:id="mfdDp" prefHeight="44.0" prefWidth="159.0" />
+                     </children>
+                  </VBox>
+                  <VBox spacing="2.0">
+                     <children>
+                        <Label text="Months" />
+                        <TextField fx:id="expireMonthTf" alignment="CENTER" maxHeight="44.0" maxWidth="44.0" minHeight="44.0" minWidth="44.0" prefHeight="44.0" prefWidth="44.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
                </children>
-            </VBox>
+            </HBox>
             <VBox spacing="2.0">
                <children>
                   <Label text="Expire Date" />
-                  <DatePicker fx:id="expDp" />
+                  <HBox>
+                     <children>
+                        <DatePicker fx:id="expDp" prefHeight="44.0" />
+                        <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" maxHeight="44.0" maxWidth="44.0" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#calculateDateBtnOnAction" prefHeight="44.0" prefWidth="44.0" styleClass="button-action" text="Button">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <graphic>
+                              <FontAwesomeIcon fill="#999999" glyphName="PLUS" size="18px" styleClass="button-icon" />
+                           </graphic>
+                        </Button>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <VBox spacing="2.0">
@@ -38,11 +68,22 @@
             <VBox spacing="2.0">
                <children>
                   <Label text="Lable count" />
-                  <ComboBox fx:id="lblCountCb" maxWidth="1.7976931348623157E308" />
+                  <HBox spacing="5.0">
+                     <children>
+                        <ComboBox fx:id="lblCountCb" maxWidth="95.0" minWidth="95.0" prefWidth="95.0" />
+                        <CheckBox fx:id="printDialogCb" mnemonicParsing="false" text="Print Dialog" />
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
       </VBox>
-        <Button focusTraversable="false" layoutX="371.0" layoutY="87.0" maxHeight="74.0" minHeight="35.0" mnemonicParsing="false" onAction="#printBtnOnAction" prefHeight="74.0" prefWidth="201.0" styleClass="button-blue" text="Print" wrapText="true" />
+        <Button focusTraversable="false" graphicTextGap="15.0" layoutX="368.0" layoutY="79.0" maxHeight="74.0" minHeight="35.0" mnemonicParsing="false" onAction="#printBtnOnAction" prefHeight="74.0" prefWidth="201.0" styleClass="button-blue" text="Print" wrapText="true">
+         <graphic>
+            <FontAwesomeIcon fill="WHITE" glyphName="PRINT" size="2em" wrappingWidth="15.649999618530273" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
     </children>
 </AnchorPane>

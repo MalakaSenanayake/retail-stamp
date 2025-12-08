@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -18,12 +19,14 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import javafx.util.FxAlertsUtil;
 import javafx.util.FxDatePickerUtil;
 import javafx.util.FxTextFieldUtil;
 import net.sf.jasperreports.engine.*;
 import utill.FxmlPath;
 import utill.JasperCompiler;
 import utill.ReportPath;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -42,7 +45,11 @@ public class PrintController implements Initializable {
     @FXML
     private TextField prizeTf;
     @FXML
+    private TextField expireMonthTf;
+    @FXML
     private ComboBox<Integer> lblCountCb;
+    @FXML
+    private CheckBox printDialogCb;
 
     private static Stage primaryStage;
 
@@ -53,34 +60,47 @@ public class PrintController implements Initializable {
         compileReport();
     }
 
+    @FXML
+    void printBtnOnAction(ActionEvent event) {
+        print();
+    }
+    @FXML
+    void calculateDateBtnOnAction(ActionEvent event) {
+         calculateDate();
+    }
     //------------------------------------------------------------------------------------------------------------------
     private void validations() {
         FxTextFieldUtil.toOnlyDecimalPositive(prizeTf);
+        FxTextFieldUtil.toOnlyDecimalPositive(expireMonthTf);
         FxDatePickerUtil.toFormatWithToday(mfdDp);
         FxDatePickerUtil.toFormat(expDp);
         mfdDp.setEditable(false);
         expDp.setEditable(false);
         lblCountCb.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
         lblCountCb.getSelectionModel().selectFirst();
+        expireMonthTf.setText("9");
+    }
+    //------------------------------------------------------------------------------------------------------------------
+    private void calculateDate() {
+        if(FxTextFieldUtil.isNotEmpty(expireMonthTf)){
+            FxDatePickerUtil.setDatePlusGivenMonths(mfdDp,expDp,Integer.parseInt(expireMonthTf.getText()));
+        }
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
+
     private void compileReport() {
         JasperCompiler.compileReport(ReportPath.EXPIRE_DATE_LABEL);
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    @FXML
-    void printBtnOnAction(ActionEvent event) {
-        print();
-    }
 
-    //------------------------------------------------------------------------------------------------------------------
     private void print() {
         if (FxDatePickerUtil.isNotEmptyDatePicker(expDp)) {
             if (FxTextFieldUtil.isNotEmpty(prizeTf)) {
-                int labelCount = lblCountCb.getValue() + 1;
-                for (int i = 0; i < labelCount; i++) {
+                int labelCount = lblCountCb.getValue();
+                for (int i = 0; i <= labelCount; i++) {
                     printSingleLabel();
                 }
             }
@@ -99,14 +119,15 @@ public class PrintController implements Initializable {
             Map<String, Object> parameters = new HashMap<>();
             // Add your two String parameters
             // Second String value
-            parameters.put("MFD", "MFD " + mfDate);      // First String value
-            parameters.put("EXP", "EXP " + expDate);
-            parameters.put("PRICE", "Rs:" + NumberUtil.toCurrencyFormat(price));
+            parameters.put("MFD", "MFD: " + mfDate);      // First String value
+            parameters.put("EXP", "EXP: " + expDate);
+            parameters.put("PRICE", "MRP Rs:" + NumberUtil.toCurrencyFormat(price));
             JasperPrint jasperPrint = JasperFillManager.fillReport(
                     jasperStream,
                     parameters,
                     new JREmptyDataSource());
             boolean printDialog = false; // Show print dialog
+            printDialog = printDialogCb.isSelected();
             JasperPrintManager.printReport(jasperPrint, printDialog);
             Print.info("Printing completed!");
         } catch (Exception e) {
