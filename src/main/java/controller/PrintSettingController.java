@@ -23,7 +23,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class PrintController implements Initializable {
+public class PrintSettingController implements Initializable {
 
     @FXML
     private AnchorPane loginMainAnchorPane;
@@ -56,11 +56,7 @@ public class PrintController implements Initializable {
 
     @FXML
     void calculateDateBtnOnAction(ActionEvent event) {
-        FxAlertsUtil.informationMessage("ok");
-        FxAlertsUtil.conformationMessage("ok");
-        FxAlertsUtil.waningMessage("ok");
-        FxAlertsUtil.errorMessage("ok");
-       // calculateDate();
+         calculateDate();
     }
 
     //------------------------------------------------------------------------------------------------------------------

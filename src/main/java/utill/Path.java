@@ -12,6 +12,6 @@ import java.net.URL;
  *
  * @author Malaka Senanayake
  */
-public class FxmlPath {
-    public static final URL PRINT_PAGE = Application.class.getResource("/view/Print.fxml");
+public interface Path {
+    public static final URL PRINT_PAGE = Application.class.getResource("/view/PrintSetting.fxml");
 }

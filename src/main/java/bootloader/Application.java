@@ -4,7 +4,7 @@ import com.property.PropertyReader;
 import javafx.util.Configuration;
 import org.apache.log4j.PropertyConfigurator;
 import javafx.util.FxAnchorPaneUtil;
-import utill.FxmlPath;
+import utill.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.Scene;
@@ -32,7 +32,7 @@ public class Application extends javafx.application.Application {
         initializeSystem();
         try {
             System.out.println(PropertyReader.BUSINESS_NAME);
-            AnchorPane rootPane = FxAnchorPaneUtil.setNew(FxmlPath.PRINT_PAGE);
+            AnchorPane rootPane = FxAnchorPaneUtil.setNew(Path.PRINT_PAGE);
             Scene sc = new Scene(rootPane);
             primaryStage.initStyle(StageStyle.DECORATED);
             primaryStage.setResizable(false);
