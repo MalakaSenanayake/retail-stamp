@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -13,16 +14,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loginMainAnchorPane" focusTraversable="true" maxHeight="510.0" maxWidth="810.0" minHeight="361.0" minWidth="585.0" prefHeight="376.0" prefWidth="655.0" styleClass="background-login" stylesheets="@../style/theme.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PrintController">
+<AnchorPane id="AnchorPane" fx:id="loginMainAnchorPane" focusTraversable="true" maxHeight="510.0" maxWidth="810.0" minHeight="361.0" minWidth="283.0" prefHeight="404.0" prefWidth="294.0" styleClass="background-main" stylesheets="@../style/theme.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PrintController">
     <children>
-      <VBox layoutX="40.0" layoutY="52.0" prefHeight="209.0" prefWidth="201.0" spacing="6.0">
+      <VBox layoutX="40.0" layoutY="52.0" prefHeight="209.0" prefWidth="201.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <Label text="Page settings">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
             <HBox>
                <children>
                   <VBox spacing="2.0">
                      <children>
                         <Label text="Manufacture Date" />
-                        <DatePicker fx:id="mfdDp" prefHeight="44.0" prefWidth="159.0" />
+                        <DatePicker fx:id="mfdDp" prefHeight="44.0" />
                      </children>
                   </VBox>
                   <VBox spacing="2.0">
@@ -76,14 +82,22 @@
                   </HBox>
                </children>
             </VBox>
+            <HBox prefHeight="40.0" prefWidth="204.0">
+               <children>
+                    <Button focusTraversable="false" graphicTextGap="15.0" maxHeight="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#printBtnOnAction" prefHeight="40.0" prefWidth="254.0" styleClass="button-blue" text="Print" wrapText="true">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PRINT" size="2em" wrappingWidth="15.649999618530273" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
          </children>
       </VBox>
-        <Button focusTraversable="false" graphicTextGap="15.0" layoutX="368.0" layoutY="79.0" maxHeight="74.0" minHeight="35.0" mnemonicParsing="false" onAction="#printBtnOnAction" prefHeight="74.0" prefWidth="201.0" styleClass="button-blue" text="Print" wrapText="true">
-         <graphic>
-            <FontAwesomeIcon fill="WHITE" glyphName="PRINT" size="2em" wrappingWidth="15.649999618530273" />
-         </graphic>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Button>
     </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </AnchorPane>

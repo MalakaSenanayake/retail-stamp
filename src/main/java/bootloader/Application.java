@@ -1,26 +1,17 @@
 package bootloader;
 
 import com.property.PropertyReader;
-import net.sf.jasperreports.engine.JasperCompileManager;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
+import javafx.util.Configuration;
 import org.apache.log4j.PropertyConfigurator;
 import javafx.util.FxAnchorPaneUtil;
-import javafx.util.Configuration;
-import javafx.util.FxTheme;
 import utill.FxmlPath;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import utill.JasperCompiler;
-import utill.ReportPath;
 
 /**
  * @author malaka senanayake
@@ -58,8 +49,9 @@ public class Application extends javafx.application.Application {
     //------------------------------------------------------------------------------------------------------------------
     private void initializeSystem() {
         PropertyReader.initialize();// Initialize properties
-        FxTheme.setTheme(Configuration.LIGHT_THEME);// Set theme
         PropertyConfigurator.configure(PropertyReader.LOG4J_PROPERTY_FILE_PATH);
+        Configuration.setAppIcon("/image/appIcon.png");
+        Configuration.setAlertTitle("retail-stamp");
     }
     //------------------------------------------------------------------------------------------------------------------
 }

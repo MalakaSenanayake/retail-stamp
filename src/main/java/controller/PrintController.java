@@ -1,6 +1,5 @@
 package controller;
 
-
 import common.java.util.NumberUtil;
 import common.java.util.Print;
 import javafx.event.ActionEvent;
@@ -12,6 +11,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.util.FxAlertsUtil;
 import javafx.util.FxDatePickerUtil;
 import javafx.util.FxTextFieldUtil;
 import net.sf.jasperreports.engine.*;
@@ -56,7 +56,11 @@ public class PrintController implements Initializable {
 
     @FXML
     void calculateDateBtnOnAction(ActionEvent event) {
-        calculateDate();
+        FxAlertsUtil.informationMessage("ok");
+        FxAlertsUtil.conformationMessage("ok");
+        FxAlertsUtil.waningMessage("ok");
+        FxAlertsUtil.errorMessage("ok");
+       // calculateDate();
     }
 
     //------------------------------------------------------------------------------------------------------------------
