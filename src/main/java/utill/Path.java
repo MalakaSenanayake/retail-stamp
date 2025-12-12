@@ -6,6 +6,8 @@
 package utill;
 
 import bootloader.Application;
+import com.property.PropertyReader;
+
 import java.net.URL;
 
 /**
@@ -13,5 +15,7 @@ import java.net.URL;
  * @author Malaka Senanayake
  */
 public interface Path {
-    public static final URL PRINT_PAGE = Application.class.getResource("/view/PrintSetting.fxml");
+    public static final URL LABEL_PRINT_VIEW = Application.class.getResource("/view/LabelPrintView.fxml");
+
+    public static final String RETAIL_LABEL_REPORT = PropertyReader.REPORTS_FOLDER_PATH+"/RetailLabelReport";
 }

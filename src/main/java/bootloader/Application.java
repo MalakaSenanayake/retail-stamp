@@ -32,7 +32,7 @@ public class Application extends javafx.application.Application {
         initializeSystem();
         try {
             System.out.println(PropertyReader.BUSINESS_NAME);
-            AnchorPane rootPane = FxAnchorPaneUtil.setNew(Path.PRINT_PAGE);
+            AnchorPane rootPane = FxAnchorPaneUtil.setNew(Path.LABEL_PRINT_VIEW);
             Scene sc = new Scene(rootPane);
             primaryStage.initStyle(StageStyle.DECORATED);
             primaryStage.setResizable(false);

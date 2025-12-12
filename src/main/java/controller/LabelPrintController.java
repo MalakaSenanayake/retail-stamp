@@ -11,19 +11,19 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.FxAlertsUtil;
 import javafx.util.FxDatePickerUtil;
 import javafx.util.FxTextFieldUtil;
 import net.sf.jasperreports.engine.*;
 import utill.JasperCompiler;
-import utill.ReportPath;
+import utill.Path;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class PrintSettingController implements Initializable {
+public class LabelPrintController implements Initializable {
 
     @FXML
     private AnchorPane loginMainAnchorPane;
@@ -83,7 +83,7 @@ public class PrintSettingController implements Initializable {
     //------------------------------------------------------------------------------------------------------------------
 
     private void compileReport() {
-        JasperCompiler.compileReport(ReportPath.EXPIRE_DATE_LABEL);
+        JasperCompiler.compileReport(Path.RETAIL_LABEL_REPORT);
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -106,7 +106,7 @@ public class PrintSettingController implements Initializable {
         String price = prizeTf.getText();
         InputStream jasperStream = null;
         try {
-            jasperStream = Files.newInputStream(Paths.get(ReportPath.EXPIRE_DATE_LABEL + ".jasper"));
+            jasperStream = Files.newInputStream(Paths.get(Path.RETAIL_LABEL_REPORT + ".jasper"));
             Map<String, Object> parameters = new HashMap<>();
             // Add your two String parameters
             // Second String value
