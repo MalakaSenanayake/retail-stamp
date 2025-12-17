@@ -16,7 +16,7 @@ import javafx.util.Configuration;
 import javafx.util.FxStackPaneUtil;
 import org.apache.log4j.PropertyConfigurator;
 import utill.JasperCompiler;
-import utill.Path;
+import utill.path.Path;
 
 /**
  * @author malaka senanayake
