@@ -2,6 +2,7 @@ package controller;
 
 import common.java.util.NumberUtil;
 import common.java.util.Print;
+import dto.PriceDateDto;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -16,6 +17,7 @@ import javafx.util.FxAlertsUtil;
 import javafx.util.FxDatePickerUtil;
 import javafx.util.FxTextFieldUtil;
 import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import utill.JasperCompiler;
 import utill.Path;
 import java.io.InputStream;
@@ -52,13 +54,14 @@ public class LabelPrintController implements Initializable {
     private CheckBox printDialogCb;
 
     private static Stage primaryStage;
-    private TextField allTf[];
+    private TextField[] allTf;
     String mfdPrefix;
     String mfDate;
     String expPrefix;
     String expDate;
     String pricePreFix;
     String price;
+    int labelCount;
 
 
     @Override
@@ -106,8 +109,8 @@ public class LabelPrintController implements Initializable {
 
         mfdDp.setEditable(false);
         expDp.setEditable(false);
-        //lblCountCb.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        lblCountCb.getItems().addAll(1, 2, 3, 4, 5);
+        lblCountCb.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+       // lblCountCb.getItems().addAll(1, 2, 3, 4, 5);
         lblCountCb.getSelectionModel().selectFirst();
         toDefault();
 
@@ -124,6 +127,7 @@ public class LabelPrintController implements Initializable {
         printDialogCb.setSelected(false);
         expDp.setValue(null);
         calculateExpireDate();
+
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -148,10 +152,7 @@ public class LabelPrintController implements Initializable {
                         "\n" + expPrefix + " : " + expDate +
                         "\n" + pricePreFix + "  : Rs." + price;
                 if (FxAlertsUtil.conformationMessage(msg)) {
-                    int labelCount = lblCountCb.getValue();
-                    for (int i = 0; i < labelCount; i++) {
-                        startPrintTask();
-                    }
+                    startPrintTask();
                 }
             }
         }
@@ -182,27 +183,22 @@ public class LabelPrintController implements Initializable {
         });
         new Thread(printingTask).start();
     }
-    //------------------------------------------------------------------------------------------------------------------
-
-    private void compileReport() {
-        JasperCompiler.compileReport(Path.RETAIL_LABEL_REPORT);
-    }
 
     //------------------------------------------------------------------------------------------------------------------
     private void printLabel() {
-        InputStream jasperStream = null;
+        InputStream jasperReport = null;
         try {
-            jasperStream = Files.newInputStream(Paths.get(Path.RETAIL_LABEL_REPORT + ".jasper"));
-            Map<String, Object> parameters = new HashMap<>();
-            // Add your two String parameters
-            // Second String value
-            parameters.put("MFD", mfdPrefix + ": " + mfDate);      // First String value
-            parameters.put("EXP", expPrefix + ": " + expDate);
-            parameters.put("PRICE", pricePreFix + ": Rs." + price);
-            JasperPrint jasperPrint = JasperFillManager.fillReport(
-                    jasperStream,
-                    parameters,
-                    new JREmptyDataSource());
+            jasperReport = Files.newInputStream(Paths.get(Path.RETAIL_LABEL_REPORT_JASPER));
+            List<PriceDateDto> priceDateList = new ArrayList<>();
+            int lblCount = lblCountCb.getSelectionModel().getSelectedIndex();
+            for (int i = 0; i <= lblCount; i++){
+                String mfd = mfdPrefix+"  : "+mfDate;
+                String exp = expPrefix+": "+expDate;
+                String prz = pricePreFix+"  : "+price;
+                priceDateList.add(new PriceDateDto(mfd,exp,prz));
+            }
+            JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(priceDateList);
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,null,dataSource);
             boolean printDialog = false; // Show print dialog
             printDialog = printDialogCb.isSelected();
             JasperPrintManager.printReport(jasperPrint, printDialog);

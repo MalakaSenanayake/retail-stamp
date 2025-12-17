@@ -6,14 +6,11 @@ import net.sf.jasperreports.engine.JasperCompileManager;
 
 public class JasperCompiler {
     //------------------------------------------------------------------------------------------------------------------
-    public static void compileReport(String reportFilePath) {
+    public static void compileReport(String jrxmlFilePath, String jasperFilePath) {
         try {
             // Compile JRXML to Jasper
-            JasperCompileManager.compileReportToFile(
-                    reportFilePath+".jrxml",
-                    reportFilePath+".jasper"
-            );
-            Print.info(reportFilePath+"- Report compiled successfully!");
+            JasperCompileManager.compileReportToFile(jrxmlFilePath, jasperFilePath);
+            Print.info(jrxmlFilePath +"- Report compiled to Jasper file successfully!");
         } catch (JRException e) {
             Print.error(e.getMessage());
         }

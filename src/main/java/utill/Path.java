@@ -20,5 +20,6 @@ public interface Path {
     public static final URL LABEL_PRINT_VIEW = Application.class.getResource("/view/LabelPrintView.fxml");
     public static final URL SPLASH_SCREEN_VIEW = Application.class.getResource("/view/SplashScreenView.fxml");
 
-    public static final String RETAIL_LABEL_REPORT = PropertyReader.REPORTS_FOLDER_PATH+"/RetailLabelReport";
+    public static final String RETAIL_LABEL_REPORT_JRXML = PropertyReader.REPORTS_FOLDER_PATH+"/RetailLabelReport.jrxml";
+    public static final String RETAIL_LABEL_REPORT_JASPER = PropertyReader.REPORTS_FOLDER_PATH+"/RetailLabelReport.jasper";
 }
