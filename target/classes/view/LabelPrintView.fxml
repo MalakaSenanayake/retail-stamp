@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="470.0" maxWidth="300.0" minHeight="470.0" minWidth="300.0" prefHeight="470.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LabelPrintController">
+   <children>
+      <AnchorPane id="AnchorPane" fx:id="loginMainAnchorPane" focusTraversable="true" maxHeight="470.0" maxWidth="300.0" minHeight="470.0" minWidth="300.0" prefHeight="470.0" prefWidth="300.0" styleClass="background-main" stylesheets="@../style/theme.css">
+          <children>
+            <VBox alignment="CENTER_LEFT" layoutX="23.0" layoutY="19.0" maxWidth="254.0" minWidth="254.0" prefHeight="209.0" prefWidth="254.0" spacing="10.0">
+               <children>
+                  <Label text="Page settings">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox spacing="1.0">
+                     <children>
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="Pre fix" />
+                              <TextField fx:id="mfdPreFixTf" alignment="CENTER" maxHeight="44.0" maxWidth="100.0" minHeight="44.0" minWidth="100.0" prefHeight="44.0" prefWidth="100.0" text="MFD">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Manufacture Date" />
+                              <DatePicker fx:id="mfdDp" maxHeight="44.0" maxWidth="1.7976931348623157E308" minHeight="44.0" onAction="#mfdDpOnAction" prefHeight="44.0" VBox.vgrow="ALWAYS" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="1.0">
+                     <children>
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="Expire months" />
+                              <TextField fx:id="expireMonthTf" alignment="CENTER" maxHeight="44.0" maxWidth="100.0" minHeight="44.0" minWidth="100.0" onKeyReleased="#expireMonthTfKeyReleased" prefHeight="44.0" prefWidth="100.0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="63.0" prefWidth="59.0" spacing="2.0">
+                           <children>
+                              <Label text="Calculate" />
+                              <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" focusTraversable="false" maxHeight="44.0" maxWidth="44.0" minHeight="44.0" minWidth="44.0" mnemonicParsing="false" onAction="#calculateDateBtnOnAction" prefHeight="44.0" prefWidth="44.0" styleClass="button-action" text="Button">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#999999" glyphName="PLUS" size="18px" styleClass="button-icon" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="1.0">
+                     <children>
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="Pre fix" />
+                              <TextField fx:id="expPreFixTf" alignment="CENTER" maxHeight="44.0" maxWidth="100.0" minHeight="44.0" minWidth="100.0" prefHeight="44.0" prefWidth="100.0" text="EXP">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Expire Date" />
+                              <DatePicker fx:id="expDp" maxHeight="44.0" maxWidth="1.7976931348623157E308" minHeight="44.0" prefHeight="44.0" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox spacing="1.0">
+                     <children>
+                        <VBox spacing="2.0">
+                           <children>
+                              <Label text="Pre fix" />
+                              <TextField fx:id="pricePreFixTf" alignment="CENTER" maxHeight="44.0" maxWidth="100.0" minHeight="44.0" minWidth="100.0" prefHeight="44.0" prefWidth="100.0" text="MRP">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label text="Price" />
+                              <TextField fx:id="prizeTf" maxHeight="44.0" minHeight="44.0" prefHeight="44.0" VBox.vgrow="ALWAYS">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" spacing="20.0">
+                     <children>
+                        <VBox>
+                           <children>
+                              <Label text="Lable count" />
+                              <ComboBox fx:id="lblCountCb" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" />
+                           </children>
+                        </VBox>
+                        <CheckBox fx:id="printDialogCb" mnemonicParsing="false" text="Print Dialog">
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                    <Button focusTraversable="false" graphicTextGap="15.0" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" onAction="#printBtnOnAction" prefHeight="40.0" styleClass="button-blue" text="Print" wrapText="true">
+                     <graphic>
+                        <FontAwesomeIcon fill="WHITE" glyphName="PRINT" size="2em" wrappingWidth="15.649999618530273" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </AnchorPane>
+      <VBox fx:id="progressPane" alignment="CENTER" maxHeight="470.0" maxWidth="300.0" minHeight="470.0" minWidth="300.0" prefHeight="470.0" prefWidth="300.0" style="-fx-background-color: rgba(0,0,0,0.45);" visible="false">
+         <children>
+            <ProgressIndicator fx:id="progressIndicator" accessibleRole="PARENT" blendMode="SRC_ATOP" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" prefHeight="40.0" prefWidth="40.0" visible="false" />
+         </children>
+      </VBox>
+   </children>
+</StackPane>
