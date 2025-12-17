@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="expire_date" printOrder="Horizontal" pageWidth="108" pageHeight="54" columnWidth="108" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="36a94f79-45d7-477d-baea-33a6903070d5">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RetailLabelReport" printOrder="Horizontal" pageWidth="108" pageHeight="54" columnWidth="108" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="36a94f79-45d7-477d-baea-33a6903070d5">
 	<property name="ireport.zoom" value="4.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="MFD" class="java.lang.String"/>
-	<parameter name="EXP" class="java.lang.String"/>
-	<parameter name="PRICE" class="java.lang.String"/>
+	<field name="manufactureDate" class="java.lang.String"/>
+	<field name="expireDate" class="java.lang.String"/>
+	<field name="price" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<detail>
 		<band height="54">
 			<textField>
-				<reportElement x="0" y="1" width="108" height="15" uuid="794b851b-a433-4c56-9091-e69c0f9422d3"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+				<reportElement x="13" y="1" width="95" height="15" uuid="81bedbb2-ccf3-4f05-8c3d-883b138ecc29"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{MFD}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{manufactureDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="17" width="108" height="15" uuid="aa95fd11-ca26-4882-ac12-5885c1b375ad"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+				<reportElement x="13" y="17" width="95" height="15" uuid="3a1712f2-1968-4261-a1ff-d183db38b70b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{EXP}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{expireDate}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="33" width="108" height="15" uuid="a718b19e-600c-4e1c-bae2-da4620ca4541"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8" isBold="true"/>
+				<reportElement x="13" y="33" width="95" height="15" uuid="5a95c213-dfd8-4933-a553-06bf561041f7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$P{PRICE}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

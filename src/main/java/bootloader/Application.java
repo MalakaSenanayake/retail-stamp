@@ -6,17 +6,13 @@ import controller.SplashScreenController;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Configuration;
-import javafx.util.FxAnchorPaneUtil;
-import javafx.util.FxGroupPaneUtil;
 import javafx.util.FxStackPaneUtil;
 import org.apache.log4j.PropertyConfigurator;
 import utill.JasperCompiler;
@@ -137,7 +133,7 @@ public class Application extends javafx.application.Application {
 
     //-Load jasper------------------------------------------------------------------------------------------------------
     private void loadJasperReports() throws Exception {
-        JasperCompiler.compileReport(Path.RETAIL_LABEL_REPORT);
+        JasperCompiler.compileReport(Path.RETAIL_LABEL_REPORT_JRXML,Path.RETAIL_LABEL_REPORT_JASPER);
         Print.info("Loading Jasper Reports...");
     }
 
